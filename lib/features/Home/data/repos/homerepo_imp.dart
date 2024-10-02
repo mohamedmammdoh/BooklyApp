@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:booklyapp/core/Errors/failers.dart';
 import 'package:booklyapp/core/utilites/apiservices.dart';
 import 'package:booklyapp/features/Home/data/book_model/book_model.dart';
@@ -36,7 +38,30 @@ class HomeRepo_imp implements HomeRepo {
   }
 
   @override
-  Future<Either<Failer, List<BookModel>>> fetchFeaturedBooks() {
-    throw UnimplementedError();
+  Future<Either<Failer, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
+      var data = await api.Get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest');
+
+      List<BookModel> books_list = [];
+
+      for (var i = 0; i < data['items']; i++) {
+        books_list.add(BookModel.fromJson(data));
+      }
+      return right(books_list);
+    } catch (e) {
+      // ignore: deprecated_member_use
+      if (e is DioError) {
+        return left(
+          ServerFailer.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFailer(
+          e.toString(),
+        ),
+      );
+    }
   }
 }

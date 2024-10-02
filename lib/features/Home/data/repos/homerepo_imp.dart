@@ -41,8 +41,7 @@ class HomeRepo_imp implements HomeRepo {
   Future<Either<Failer, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await api.Get(
-          endPoint:
-              'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest');
+          endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
 
       List<BookModel> books_list = [];
 

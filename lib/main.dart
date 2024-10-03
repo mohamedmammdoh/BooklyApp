@@ -1,8 +1,8 @@
-import 'package:booklyapp/%20%20%20constants.dart';
+import 'package:booklyapp/core/utilites/%20%20%20constants.dart';
 import 'package:booklyapp/core/utilites/Approute.dart';
 import 'package:booklyapp/features/Home/data/repos/homerepo_imp.dart';
-import 'package:booklyapp/features/Home/presentation/manager/Featuredbooks_cubit/featuredbooks_cubit.dart';
-import 'package:booklyapp/features/Home/presentation/manager/Newestbooks_cubit/newestbooks_cubit.dart';
+import 'package:booklyapp/features/Home/presentation/manager(viewmodel)/Featuredbooks_cubit/featuredbooks_cubit.dart';
+import 'package:booklyapp/features/Home/presentation/manager(viewmodel)/Newestbooks_cubit/newestbooks_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';

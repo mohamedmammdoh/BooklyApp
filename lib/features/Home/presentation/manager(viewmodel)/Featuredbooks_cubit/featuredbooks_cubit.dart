@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:booklyapp/features/Home/data/repos/homerepo.dart';
-import 'package:booklyapp/features/Home/presentation/manager/Featuredbooks_cubit/featuredbooks_state.dart';
+import 'package:booklyapp/features/Home/presentation/manager(viewmodel)/Featuredbooks_cubit/featuredbooks_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FeaturedbooksCubit extends Cubit<FeaturedBooksState> {

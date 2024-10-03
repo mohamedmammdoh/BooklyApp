@@ -1,8 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
 import 'package:booklyapp/features/Home/data/repos/homerepo.dart';
-import 'package:booklyapp/features/Home/presentation/manager/Newestbooks_cubit/newestbooks_state.dart';
+import 'package:booklyapp/features/Home/presentation/manager(viewmodel)/Newestbooks_cubit/newestbooks_state.dart';
 
 class NewestbooksCubit extends Cubit<NewestedBooksState> {
   NewestbooksCubit(this.homeRepo) : super(NewsetedBooksInitial());

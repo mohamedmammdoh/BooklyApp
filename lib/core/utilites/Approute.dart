@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:booklyapp/features/Home/presentation/views/booksdetailsview.dart';
 import 'package:booklyapp/features/Home/presentation/views/homeview.dart';
 import 'package:booklyapp/features/Search/presentation/views/searchview.dart';

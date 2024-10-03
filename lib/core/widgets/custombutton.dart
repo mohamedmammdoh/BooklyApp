@@ -22,7 +22,7 @@ class BooksAction extends StatelessWidget {
         style: TextButton.styleFrom(
           backgroundColor: backgroundcolor,
           shape: RoundedRectangleBorder(
-            borderRadius: borderRadius ?? BorderRadius.circular(12),
+            borderRadius: borderRadius,
           ),
         ),
         child: Text(

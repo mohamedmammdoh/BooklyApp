@@ -14,13 +14,14 @@ class HomeRepo_imp implements HomeRepo {
     try {
       var data = await api.Get(
           endPoint:
-              'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest');
+              'volumes?Filtering=free-ebooks&q=Programming&Sorting=newest');
 
       List<BookModel> books_list = [];
 
       for (var i = 0; i < data['items']; i++) {
         books_list.add(BookModel.fromJson(data));
       }
+      print(books_list);
       return right(books_list);
     } catch (e) {
       // ignore: deprecated_member_use
@@ -41,13 +42,15 @@ class HomeRepo_imp implements HomeRepo {
   Future<Either<Failer, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await api.Get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
+          endPoint: 'volumes?Filtering=free-ebooks&q=Programming');
 
       List<BookModel> books_list = [];
 
-      for (var i = 0; i < data['items']; i++) {
+      for (var data in data['items']) {
         books_list.add(BookModel.fromJson(data));
       }
+
+      print(books_list);
       return right(books_list);
     } catch (e) {
       // ignore: deprecated_member_use

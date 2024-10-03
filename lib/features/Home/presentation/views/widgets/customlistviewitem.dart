@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key});
-
+  const CustomListViewItem({super.key, required this.imageurl});
+  final String imageurl;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,9 +17,9 @@ class CustomListViewItem extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.amber,
               borderRadius: BorderRadius.circular(8),
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage('assests/photos/test_image.png'),
+                image: NetworkImage(imageurl),
               ),
             ),
           ),

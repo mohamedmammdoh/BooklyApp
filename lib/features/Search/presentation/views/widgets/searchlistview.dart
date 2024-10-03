@@ -12,7 +12,8 @@ class ResultSearchListView extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) => const Padding(
         padding: EdgeInsets.symmetric(vertical: 10.0),
-        child: BookListViewItem(),
+        // child: BookListViewItem(),
+        child: Text('mm'),
       ),
       itemCount: 20,
     );

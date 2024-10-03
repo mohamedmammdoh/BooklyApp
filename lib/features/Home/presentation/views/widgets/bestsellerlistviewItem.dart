@@ -1,11 +1,13 @@
 import 'package:booklyapp/core/utilites/styles.dart';
+import 'package:booklyapp/features/Home/data/book_model/book_model.dart';
 import 'package:booklyapp/features/Home/presentation/views/widgets/bookingrating.dart';
+import 'package:booklyapp/features/Home/presentation/views/widgets/customlistviewitem.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
-
+  const BookListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,21 +18,8 @@ class BookListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.4,
-                width: MediaQuery.of(context).size.height * 0.25,
-                decoration: BoxDecoration(
-                  color: Colors.amber,
-                  borderRadius: BorderRadius.circular(8),
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assests/photos/test_image.png'),
-                  ),
-                ),
-              ),
-            ),
+            CustomBookImage(
+                imageurl: bookModel.volumeInfo.imageLinks!.thumbnail),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
@@ -38,24 +27,28 @@ class BookListViewItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * .5,
-                    child: const Text(
-                      'Herry petter kfpwefwgwgnwgnwkfpwefwgwgnwgnwkfpwefwgwgnwgnw',
+                    child: Text(
+                      bookModel.volumeInfo.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.TextStyle20,
                     ),
                   ),
                   const SizedBox(height: 3),
-                  const Text('mohameddddddd', style: Styles.TextStyle14),
+                  Text(bookModel.volumeInfo.authors![0],
+                      style: Styles.TextStyle14),
                   const SizedBox(height: 3),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        r'200 $',
+                      const Text(
+                        'Free',
                         style: Styles.TextStyle20,
                       ),
-                      BookRating(),
+                      BookRating(
+                        count: bookModel.volumeInfo.ratingsCount ?? 0,
+                        rating: bookModel.volumeInfo.averageRating ?? 0,
+                      ),
                     ],
                   ),
                 ],

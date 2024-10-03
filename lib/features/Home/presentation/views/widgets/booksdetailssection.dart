@@ -29,7 +29,11 @@ class BooksDetailsSection extends StatelessWidget {
           style: Styles.TextStyle18.copyWith(color: Colors.grey),
         ),
         const SizedBox(height: 18),
-        const BookRating(mainAxisAlignment: MainAxisAlignment.center),
+        const BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+          count: 5,
+          rating: 250,
+        ),
         const SizedBox(height: 10),
         const Row(
           children: [
